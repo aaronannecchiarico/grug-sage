@@ -1,10 +1,11 @@
 import domReady from '@roots/sage/client/dom-ready';
+import 'preline';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  // ...
+  console.log('Grugs up 🚀');
 });
 
 /**
