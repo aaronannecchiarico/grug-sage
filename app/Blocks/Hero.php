@@ -123,12 +123,20 @@ class Hero extends Block
      * @var array
      */
     public $hero = [
-        'hero_image' => 'https://dummyimage.com/600x400/e5e7eb/000000.jpg&text=Placeholder',
-        'hero_heading' => 'Hero Heading',
-        'hero_subheading' => 'Hero Subheading',
+        'hero_heading' => 'Turn terminally online lurkers into',
+        'hero_heading_focus' => 'lifetime customers',
+        'hero_feature_text' => 'Capterra',
+        'hero_feature_subtext' => 'Rated best over 37k reviews',
+        'hero_subheading' => 'SMALL BUSINESS SOLUTIONS FOR THE MODERN WORLD',
         'hero_button' => [
             'hero_button_link' => '#',
-            'hero_button_text' => 'Button',
+            'hero_button_text' => 'Contact Us',
+        ],
+        'hero_form' => [
+            'hero_form_name_label' => 'Name',
+            'hero_form_name_placeholder' => 'grug',
+            'hero_form_email_label' => 'Email',
+            'hero_form_email_placeholder' => 'grug@somecompany.com',
         ],
     ];
 
@@ -139,7 +147,9 @@ class Hero extends Block
      */
     public function with()
     {
-        return ['hero' => $this->hero()];
+        return [
+            'hero' => $this->hero()
+        ];
     }
 
     /**
@@ -152,9 +162,11 @@ class Hero extends Block
         $hero = new FieldsBuilder('hero');
 
         $hero
-            ->addImage('hero_image')
             ->addText('hero_heading')
+            ->addText('hero_heading_focus')
             ->addText('hero_subheading')
+            ->addText('hero_feature_text')
+            ->addLink('hero_feature_subtext')
             ->addLink('hero_button_link')
             ->addText('hero_button_text');
 
@@ -168,27 +180,33 @@ class Hero extends Block
      */
     public function hero()
     {
-        $hero_image = get_field('hero_image');
-        if (is_array($hero_image)) {
-            $hero_image = $hero_image['url'];
-        }
-
-        if(!$hero_image){
-            $hero_image = $this->hero['hero_image'];
-        }
         $hero_heading = get_field('hero_heading') ?: $this->hero['hero_heading'];
+        $hero_heading_focus = get_field('hero_heading_focus') ?: $this->hero['hero_heading_focus'];
         $hero_subheading = get_field('hero_subheading') ?: $this->hero['hero_subheading'];
+        $hero_feature_text = get_field('hero_feature_text') ?: $this->hero['hero_feature_text'];
+        $hero_feature_subtext = get_field('hero_feature_subtext') ?: $this->hero['hero_feature_subtext'];
         $hero_button_link = get_field('hero_button_link') ?: $this->hero['hero_button']['hero_button_link'];
         $hero_button_text = get_field('hero_button_text') ?: $this->hero['hero_button']['hero_button_text'];
-
+        $hero_form_name_label = get_field('hero_form_name_label') ?: $this->hero['hero_form']['hero_form_name_label'];
+        $hero_form_name_placeholder = get_field('hero_form_name_placeholder') ?: $this->hero['hero_form']['hero_form_name_placeholder'];
+        $hero_form_email_label = get_field('hero_form_email_label') ?: $this->hero['hero_form']['hero_form_email_label'];
+        $hero_form_email_placeholder = get_field('hero_form_email_placeholder') ?: $this->hero['hero_form']['hero_form_email_placeholder'];
 
         return [
-            'hero_image' => $hero_image,
             'hero_heading' => $hero_heading,
+            'hero_heading_focus' => $hero_heading_focus,
             'hero_subheading' => $hero_subheading,
+            'hero_feature_text' => $hero_feature_text,
+            'hero_feature_subtext' => $hero_feature_subtext,
             'hero_button' => [
-                'hero_button_link' => $hero_button_link,
+                'hero_button_link' => $hero_button_link['url'],
                 'hero_button_text' => $hero_button_text,
+            ],
+            'hero_form' => [
+                'hero_form_name_label' => $hero_form_name_label,
+                'hero_form_name_placeholder' => $hero_form_name_placeholder,
+                'hero_form_email_label' => $hero_form_email_label,
+                'hero_form_email_placeholder' => $hero_form_email_placeholder,
             ],
         ];
     }
