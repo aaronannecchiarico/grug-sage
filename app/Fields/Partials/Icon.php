@@ -10,7 +10,7 @@ class Icon extends Partial
     public $icons = [
         [
             'name' => 'facebook',
-            'icon' => 'fab fa-facebook-f'
+            'icon' => 'fab fa-facebook'
         ],
         [
             'name' => 'twitter',
@@ -34,12 +34,20 @@ class Icon extends Partial
         ],
         [
             'name' => 'moneybill',
-            'icon' => 'fas fa-money-bill-wave'
+            'icon' => 'fas fa-money-bill'
+        ],
+        [
+            'name' => 'moneybills',
+            'icon' => 'fas fa-money-bills'
         ],
         [
             'name' => 'magic-wand-sparkles',
             'icon' => 'fas fa-wand-magic-sparkles'
         ],
+        [
+            'name' => 'eye',
+            'icon' => 'fas fa-eye'
+        ]
     ];
     /**
      * The partial field group.
