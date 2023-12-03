@@ -39,7 +39,7 @@
     }
   },
   "require": {
-    "php": "^8.2",
+    "php": ">=8.0",
     "log1x/acf-composer": "^2.1",
     "log1x/sage-directives": "^1.1",
     "log1x/sage-svg": "^1.1",

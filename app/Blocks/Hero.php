@@ -127,6 +127,7 @@ class Hero extends Block
         'hero_heading_focus' => 'lifetime customers',
         'hero_feature_text' => 'Capterra',
         'hero_feature_subtext' => 'Rated best over 37k reviews',
+        'hero_feature_stats' => '7k+',
         'hero_subheading' => 'SMALL BUSINESS SOLUTIONS FOR THE MODERN WORLD',
         'hero_button' => [
             'hero_button_link' => '#',
@@ -166,9 +167,14 @@ class Hero extends Block
             ->addText('hero_heading_focus')
             ->addText('hero_subheading')
             ->addText('hero_feature_text')
-            ->addLink('hero_feature_subtext')
+            ->addText('hero_feature_subtext')
+            ->addText('hero_feature_stats')
             ->addLink('hero_button_link')
-            ->addText('hero_button_text');
+            ->addText('hero_button_text')
+            ->addText('hero_form_name_label')
+            ->addText('hero_form_name_placeholder')
+            ->addText('hero_form_email_label')
+            ->addText('hero_form_email_placeholder');
 
         return $hero->build();
     }
@@ -185,6 +191,7 @@ class Hero extends Block
         $hero_subheading = get_field('hero_subheading') ?: $this->hero['hero_subheading'];
         $hero_feature_text = get_field('hero_feature_text') ?: $this->hero['hero_feature_text'];
         $hero_feature_subtext = get_field('hero_feature_subtext') ?: $this->hero['hero_feature_subtext'];
+        $hero_feature_stats = get_field('hero_feature_stats') ?: $this->hero['hero_feature_stats'];
         $hero_button_link = get_field('hero_button_link') ?: $this->hero['hero_button']['hero_button_link'];
         $hero_button_text = get_field('hero_button_text') ?: $this->hero['hero_button']['hero_button_text'];
         $hero_form_name_label = get_field('hero_form_name_label') ?: $this->hero['hero_form']['hero_form_name_label'];
@@ -198,8 +205,9 @@ class Hero extends Block
             'hero_subheading' => $hero_subheading,
             'hero_feature_text' => $hero_feature_text,
             'hero_feature_subtext' => $hero_feature_subtext,
+            'hero_feature_stats' => $hero_feature_stats,
             'hero_button' => [
-                'hero_button_link' => $hero_button_link['url'],
+                'hero_button_link' => $hero_button_link,
                 'hero_button_text' => $hero_button_text,
             ],
             'hero_form' => [

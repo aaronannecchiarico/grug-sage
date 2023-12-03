@@ -7,7 +7,7 @@
 namespace App;
 
 use function Roots\bundle;
-use ACF;
+// use ACF;
 
 /**
  * Register the theme assets.
@@ -110,6 +110,14 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    /**
+     * Sage 10 add app styles to editor
+     *
+     * @link https://roots.io/sage/docs/gutenberg/
+     */
+    add_theme_support('editor-styles');
+    add_editor_style(asset('app.css')->uri());
 }, 20);
 
 /**
@@ -135,7 +143,6 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
-
 /**
  * Advanced Custom Fields Pro
  */

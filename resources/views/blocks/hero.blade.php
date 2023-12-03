@@ -32,7 +32,7 @@
 									src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
 									alt="Image Description">
 								<span class="inline-flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-black bg-white">
-									<span class="text-xs font-medium uppercase leading-none text-black">7k+</span>
+									<span class="text-xs font-medium uppercase leading-none text-black">{{ $hero['hero_feature_stats'] }}</span>
 								</span>
 							</div>
 							<!-- End Avatar Group -->

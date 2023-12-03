@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  {{-- include the hero section --}}
-  @include('sections.hero');
-
   @if (! have_posts())
     <x-alert type="warning">
       {!! __('Sorry, no results were found.', 'sage') !!}

@@ -16,7 +16,10 @@ class HeaderComponent extends Component
     public function __construct()
     {
         // get the wordpress primary naviagtion menu items as an array
-        $nav_items = wp_get_nav_menu_items('primary');
+        $nav_items = wp_get_nav_menu_items('primary-navigation');
+        if(empty($nav_items)) {
+            $nav_items = [];
+        }
         $this->nav_items = $nav_items;
     }
 
